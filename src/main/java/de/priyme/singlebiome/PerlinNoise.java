@@ -59,7 +59,8 @@ public final class PerlinNoise {
     }
 
     private int fastFloor(double x) {
-        return x >= 0 ? (int) x : (int) x - 1;
+        int i = (int) x;
+        return x < i ? i - 1 : i;
     }
 
     private double fade(double t) {

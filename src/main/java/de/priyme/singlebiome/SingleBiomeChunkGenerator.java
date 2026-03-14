@@ -63,8 +63,9 @@ public final class SingleBiomeChunkGenerator extends ChunkGenerator {
         if (isVoidBiome(config.biome())) return;
         int minY = worldInfo.getMinHeight();
         int maxY = worldInfo.getMaxHeight();
-        // Always lay down the base here to avoid "surface-only" chunks when generateNoise is skipped.
-        generateBaseTerrain(minY, maxY, worldInfo.getSeed(), chunkX, chunkZ, data);
+        if (data.getType(0, minY, 0) != Material.BEDROCK) {
+            generateBaseTerrain(minY, maxY, worldInfo.getSeed(), chunkX, chunkZ, data);
+        }
         generateSurfaceLayers(minY, maxY, worldInfo.getSeed(), chunkX, chunkZ, data);
     }
 
@@ -118,10 +119,6 @@ public final class SingleBiomeChunkGenerator extends ChunkGenerator {
 
                 data.setBlock(x, height, z, surfacePalette.top());
 
-                int airFrom = height + 1;
-                if (airFrom < maxY) {
-                    data.setRegion(x, airFrom, z, x + 1, maxY, z + 1, Material.AIR);
-                }
             }
         }
     }
@@ -129,9 +126,7 @@ public final class SingleBiomeChunkGenerator extends ChunkGenerator {
     private void applyBiomeGrid(int minY, int maxY, BiomeGrid biome) {
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                for (int y = minY; y < maxY; y++) {
-                    biome.setBiome(x, y, z, config.biome());
-                }
+                biome.setBiome(x, z, config.biome());
             }
         }
     }
