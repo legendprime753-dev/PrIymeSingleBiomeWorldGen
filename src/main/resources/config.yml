@@ -39,7 +39,7 @@ defaults:
   trees:
     # If enabled, the generator will place trees.
     enabled: false
-    # Trees per chunk (0..64). 0 disables trees.
+    # Trees per chunk (0..24). 0 disables trees.
     per-chunk: 0
     # Tree style: SIMPLE (plugin) or VANILLA (vanilla tree features, with safety checks).
     style: VANILLA
