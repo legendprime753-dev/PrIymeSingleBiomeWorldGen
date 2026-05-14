@@ -137,7 +137,42 @@ public final class SingleBiomeChunkGenerator extends ChunkGenerator {
     }
 
     @Override
+    public boolean shouldGenerateNoise() {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateNoise(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateSurface() {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateSurface(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateBedrock() {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateBedrock(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
+        return false;
+    }
+
+    @Override
     public boolean shouldGenerateCaves() {
+        return false;
+    }
+
+    @Override
+    public boolean shouldGenerateCaves(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
         return false;
     }
 
@@ -168,26 +203,6 @@ public final class SingleBiomeChunkGenerator extends ChunkGenerator {
 
     @Override
     public boolean shouldGenerateStructures(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
-        return false;
-    }
-
-    @Override
-    public boolean shouldGenerateNoise() {
-        return true;
-    }
-
-    @Override
-    public boolean shouldGenerateSurface() {
-        return true;
-    }
-
-    @Override
-    public boolean shouldGenerateBedrock() {
-        return false;
-    }
-
-    @Override
-    public boolean shouldGenerateCaves(WorldInfo worldInfo, Random random, int chunkX, int chunkZ) {
         return false;
     }
 
