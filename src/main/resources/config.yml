@@ -1,0 +1,58 @@
+# PrIymeSingleBiomeWorldGen
+# Minimalist single-biome worlds (Flat or gentle hills) without caves, structures or vanilla decorations.
+
+biome-whitelist:
+  # If enabled=true, only the biomes listed below are selectable (GUI & commands).
+  # Accepted formats: "PLAINS" (legacy) OR "minecraft:plains" (NamespacedKey).
+  enabled: false
+  biomes:
+    - minecraft:plains
+    - minecraft:desert
+    - minecraft:savanna
+    - minecraft:snowy_plains
+
+defaults:
+  # Can also be a NamespacedKey (e.g. minecraft:plains)
+  biome: minecraft:plains
+  mode: NOISE
+
+  flat:
+    # Target surface height (Y coordinate of the top block).
+    surface-y: 64
+    # Amount of filler blocks right below the top block (e.g. dirt/sand).
+    filler-depth: 3
+
+  noise:
+    # Base surface height.
+    base-y: 64
+    # Maximum hill height (amplitude).
+    amplitude: 12
+    # Noise scale (smaller = larger hills).
+    scale: 0.008
+    # Noise octaves for smoother shapes.
+    octaves: 4
+    # Persistence (0..1) for octaves.
+    persistence: 0.5
+    # Amount of filler blocks below the top block in noise mode.
+    filler-depth: 3
+
+  trees:
+    # If enabled, the generator will place trees.
+    enabled: false
+    # Trees per chunk (0..64). 0 disables trees.
+    per-chunk: 0
+    # Tree style: SIMPLE (plugin) or VANILLA (vanilla tree features, with safety checks).
+    style: VANILLA
+
+mobs:
+  # Additionally suppress NATURAL mob spawning in plugin worlds via event listener.
+  suppress-natural-spawning: true
+
+worlds:
+  # Auto-load saved plugin worlds on server startup (if the world folder exists).
+  auto-load-on-startup: true
+  # One file per world in /plugins/PrIymeSingleBiomeWorldGen/worlds/<world>.yml
+  per-world-files: true
+
+gui:
+  title: "Single Biome World Creator"

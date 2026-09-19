@@ -1,0 +1,22 @@
+name: PrIymeSingleBiomeWorldGen
+version: 1.0.2
+main: de.priyme.singlebiome.SingleBiomeWorldGenPlugin
+api-version: '1.21'
+author: PrIyme
+commands:
+  sbw:
+    description: Create and manage minimalist single-biome worlds
+    usage: /sbw
+    aliases: [singlebiome, biomeworld]
+    permission: priyme.sbw.use
+permissions:
+  priyme.sbw.use:
+    default: op
+  priyme.sbw.create:
+    default: op
+  priyme.sbw.delete:
+    default: op
+  priyme.sbw.preset:
+    default: op
+  priyme.sbw.tp:
+    default: op
